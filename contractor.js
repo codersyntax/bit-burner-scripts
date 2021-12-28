@@ -19,4 +19,5 @@ export async function main(ns) {
     contractsDb.forEach(c => c.type = dictContractTypes[c.contract]);
     contractsDb.forEach(c => c.data = dictContractData[c.contract]);
     ns.run('./run-with-delay.js', 1, scriptSolver, 1, JSON.stringify(contractsDb));
+    await ns.sleep(10000);
 }
