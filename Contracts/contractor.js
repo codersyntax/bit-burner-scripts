@@ -1,5 +1,5 @@
-import { getNsDataThroughFile, disableLogs, scanAllServers } from './helpers.js'
-const scriptSolver = "./contractor.js.solver.js";
+import { getNsDataThroughFile, disableLogs, scanAllServers } from './Contracts/helpers.js'
+const scriptSolver = "./Contracts/contractor.js.solver.js";
 
 /** @param {NS} ns **/
 export async function main(ns) {
@@ -18,5 +18,5 @@ export async function main(ns) {
     let dictContractData = await getNsDataThroughFile(ns, contractsDictCommand('ns.codingcontract.getData(c.contract, c.hostname)'), '/Temp/contract-data.txt');
     contractsDb.forEach(c => c.type = dictContractTypes[c.contract]);
     contractsDb.forEach(c => c.data = dictContractData[c.contract]);
-    ns.run('run-with-delay.js', 1, scriptSolver, 1, JSON.stringify(contractsDb));
+    ns.run('Contracts/run-with-delay.js', 1, scriptSolver, 1, JSON.stringify(contractsDb));
 }
