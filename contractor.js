@@ -32,7 +32,6 @@ export async function main(ns) {
         }
         await ns.sleep(10)
     }
-    await ns.sleep(100000);
 }
 
 function findAnswer(contract) {
