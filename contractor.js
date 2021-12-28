@@ -17,7 +17,6 @@ export async function main(ns) {
     let dictContractData = await getNsDataThroughFile(ns, contractsDictCommand('ns.codingcontract.getData(c.contract, c.hostname)'), '/Temp/contract-data.txt');
     contractsDb.forEach(c => c.type = dictContractTypes[c.contract]);
     contractsDb.forEach(c => c.data = dictContractData[c.contract]);
-    ns.print("Attempting to spawn child contract process");
     for (const contractInfo of contractsDb) {
         const answer = findAnswer(contractInfo)
         if (answer != null) {
