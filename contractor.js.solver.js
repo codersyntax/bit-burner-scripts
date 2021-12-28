@@ -17,6 +17,7 @@ export async function main(ns) {
         }
         await ns.sleep(10)
     }
+    ns.sleep(10000);
 }
 
 function findAnswer(contract) {
